@@ -1,0 +1,50 @@
+﻿===========================================================
+					Assembly signer documentation
+===========================================================
+
+1. Purpose
+
+This tool is designed to sign unsigned assemblies(in compiled libraries) with specified key .snk file
+This is a required task if when you deploy application you need to put assembly in GAC
+
+2. Software requirements
+
+Microsoft .Net Framework 2.0
+Microsoft .Net Framework XX
+Microsoft .Net XX SDK
+Windows
+
+XX - required version for signing assembly
+
+3. Configuring of program
+
+	1. With Reflector please open target assembly to sign and see Microsoft.Net version
+	2. Open %windir%\Microsoft.NET\Framework of this version
+	3. Open tool configuration file 'as.exe.config'
+	
+	3.1. First line in configuration file is a path of 'ilasm.exe' file:
+	For example:
+	%windir%\Microsoft.NET\Framework\v1.1.4322\ilasm.exe
+	
+	3.2. Second line in configuration file is a path of 'ildasm.exe' file from installed .Net SDK:
+	For example:
+	D:\SOFT_ARCHIVE\SDK 1.1 .NET\Bin\ildasm.exe
+	
+Tool tested on .Net 1.1
+
+Remarks for putting assembly in GAC for .Net 1.1:
+	Target assembly name should be the same as source name.
+	So if you had
+	c:\mySuperGeneratedAssembly.dll
+	please leave it's name unmodified when specifying target file name
+	c:\signed\mySuperGeneratedAssembly.dll
+
+4. License
+
+This is a public domain opensource freeware software
+
+5. Support
+
+This software is not supported.
+However if you have any bug reports you can contact me
+	Cuchuk.Sergey@gmail.com
